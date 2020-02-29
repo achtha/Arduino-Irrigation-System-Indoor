@@ -27,8 +27,13 @@ String pumpOnTime[7] = {"6:0 AM", "6:30 AM", "7:0 AM", "7:30 AM", "8:0 AM", "8:3
 
 String rtcVariable[10] = {"Year", "Month", "Day", "WeekDay", "Hr", "Min", "Sec", "WeekDayTime", "currentDate", "am_pm"};
 
-String compareDateTime[7] = {pumpOnDay[0] + " " + pumpOnTime[3], pumpOnDay[1] + " " + pumpOnTime[3], pumpOnDay[2] + " " + pumpOnTime[3], pumpOnDay[3] + " " + pumpOnTime[3]
-                             , pumpOnDay[4] + " " + pumpOnTime[3], pumpOnDay[5] + " " + pumpOnTime[3], pumpOnDay[6] + " " + pumpOnTime[3]};
+String compareDateTime[7] = {pumpOnDay[0] + " " + pumpOnTime[3],
+                             pumpOnDay[1] + " " + pumpOnTime[3],
+                             pumpOnDay[2] + " " + pumpOnTime[3],
+                             pumpOnDay[3] + " " + pumpOnTime[3],
+                             pumpOnDay[4] + " " + pumpOnTime[3],
+                             pumpOnDay[5] + " " + pumpOnTime[3],
+                             pumpOnDay[6] + " " + pumpOnTime[3]};
 
 unsigned long devicesDelay[6] = {10000, 30000, 30000, 30000, 20000, 3000};
 
