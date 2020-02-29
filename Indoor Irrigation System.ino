@@ -1,6 +1,6 @@
-#include <RTClib.h> //RTC library for Date and Time function
-#include <Wire.h> //Wire moudle for connecting RTC module with controller(need to check pinout diag for diff. controller types
-#include <LiquidCrystal.h> //LCD module
+#include <RTClib.h> //RTC Module for Date and Time function
+#include <Wire.h> //Wire Module for connecting RTC module with controller
+#include <LiquidCrystal.h> //LCD Module
 
 RTC_DS1307 RTC; // defining instance RTC for RTC_DS1307 
 
@@ -12,7 +12,7 @@ RTC_DS1307 RTC; // defining instance RTC for RTC_DS1307
 LiquidCrystal lcd(7, 8,9, 10, 11, 12);
 
 /*defining OUTPUT pins for relays associated with water pump 1, water valve 1, water valve 2 , water valve 3
- * const int pinNum[4] = {50,51,52,53}; //pin numbers
+ * const int pinNum[4] = {53,52,51,50, 49}; //pin numbers
  *  53 = water pump 1, realy 1
  *  52 = water valve 1, pot 1, relay 1
  *  51 = water valve 2, pot 2, relay 2
@@ -21,11 +21,11 @@ LiquidCrystal lcd(7, 8,9, 10, 11, 12);
 */
 const int pinNum[5] = {53, 52, 51, 50, 49}; //pin numbers
 
-String pumpOnDay[7] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+String pumpOnDay[7] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"}; // defining days
 
-String pumpOnTime[7] = {"6:0 AM", "6:30 AM", "7:0 AM", "7:30 AM", "8:0 AM", "8:30 AM", "9:0 AM"}; 
+String pumpOnTime[7] = {"6:0 AM", "6:30 AM", "7:0 AM", "7:30 AM", "8:0 AM", "8:30 AM", "9:0 AM"}; // defining time 
 
-String rtcVariable[10] = {"Year", "Month", "Day", "WeekDay", "Hr", "Min", "Sec", "WeekDayTime", "currentDate", "am_pm"};
+String rtcVariable[10] = {"Year", "Month", "Day", "WeekDay", "Hr", "Min", "Sec", "WeekDayTime", "currentDate", "am_pm"}; // rtc var
 
 String compareDateTime[7] = {pumpOnDay[0] + " " + pumpOnTime[3],
                              pumpOnDay[1] + " " + pumpOnTime[3],
@@ -33,12 +33,18 @@ String compareDateTime[7] = {pumpOnDay[0] + " " + pumpOnTime[3],
                              pumpOnDay[3] + " " + pumpOnTime[3],
                              pumpOnDay[4] + " " + pumpOnTime[3],
                              pumpOnDay[5] + " " + pumpOnTime[3],
-                             pumpOnDay[6] + " " + pumpOnTime[3]};
+                             pumpOnDay[6] + " " + pumpOnTime[3]}; //date selection 
 
 unsigned long devicesDelay[6] = {10000, 30000, 30000, 30000, 20000, 3000};
 
-String displayInfo[8] = {"                ", "Water Sys Ready", "Water Pump ON", "WP & WV1 ON", "WP & WV2 ON",
-                         "WP & WV3 ON", "Plant Light ON", "Plant Light OFF"};
+String displayInfo[8] = {"                ",
+                         "Water Sys Ready",
+                         "Water Pump ON",
+                         "WP & WV1 ON",
+                         "WP & WV2 ON",
+                         "WP & WV3 ON",
+                         "Plant Light ON",
+                         "Plant Light OFF"};
 
 int tempPin = 0; // setting up temperature input pin number to 0
 
